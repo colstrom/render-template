@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'erb'
+require 'tilt'
+
+config, template, target = ARGV.first 3
+
+File.write target, Tilt.new(template).render(YAML.load_file config)
